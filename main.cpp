@@ -5,6 +5,7 @@
 #include<netinet/in.h>
 #include"User.h"
 #include"Message.h"
+
 using namespace std;
  
 #define MESSAGE_LENGTH 1024 // Максимальный размер буфера для данных
@@ -60,7 +61,7 @@ int main()  {
                 break;
             }
         cout << "Data received from client: " <<  message << endl;
-	bzero(message, MESSAGE_LENGTH);
+	    //bzero(message, MESSAGE_LENGTH);
         cout << "Enter the message you want to send to the client: " << endl;
         ssize_t bytes = write(connection, message, sizeof(message));
         // Если передали >= 0  байт, значит пересылка прошла успешно

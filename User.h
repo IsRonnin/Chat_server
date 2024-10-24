@@ -1,12 +1,9 @@
 #pragma once
-
 #include<queue>
 #include<string>
 #include<memory>
 #include"Message.h"
 using namespace std;
-
-string sha256(const string& input);
 
 class User
 {
@@ -16,7 +13,7 @@ class User
 	queue<shared_ptr<Message>> waiting;
 
 public:
-	User(const string& login, const string& password, const string& name) : _login(login), _password(sha256(password)), _name(name) {};
+	User(const string& login, const string& password, const string& name) : _login(login), _password(password), _name(name) {};
 	void set_name(const string& new_name);
 	void set_password(const string& new_password);
 
@@ -26,4 +23,6 @@ public:
 	
 	bool const& checkNew();
 	string const& getMessage();
+
+	void addNewMessage(shared_ptr<Message> m) { waiting.push(m) };
 };

@@ -14,7 +14,8 @@ void handle_client(int client_socket){
 }
 
 bool regUser(const vault& v,const vector<string>& data){
-	
+	v.addUser(login, password, name);
+	return false;
 }
 
 vector<string> to_vec(const char c[buffSize]){
@@ -28,6 +29,7 @@ vector<string> to_vec(const char c[buffSize]){
 	if (s.length() > 0) splitted.push_back(s);
 	return splitted;
 }
+
 vector<string> to_vec(const char c[buffSize], unsigned int count) {
 	string s(c);
 	vector<string> splitted;
