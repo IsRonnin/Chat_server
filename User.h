@@ -21,8 +21,8 @@ public:
 	string const& getName();
 	string const& getPassword();
 	
-	bool const& checkNew();
-	string const& getMessage();
+	int checkNew();
 
+	shared_ptr<message> getMessage();
 	void addNewMessage(shared_ptr<Message> m) { waiting.push(m) };
 };
