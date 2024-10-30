@@ -10,8 +10,6 @@ class vault{
 	vector<shared_ptr<User>> _users;
 	vector<shared_ptr<Message>> _messages;
 public:
-	
-
 	const shared_ptr<User> getUserByLogin(const string& login) const;
 
 	void addUser(const string& login, const string& password, const string& name);

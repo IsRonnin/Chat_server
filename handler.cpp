@@ -1,46 +1,24 @@
 #include "handler.h"
 
 void handle_client(int client_socket){
-	char buffer[buffSize];
+	json request = read_data(client_socket);
 	
-	int bytes_read = read(client_socket, buffer, buffSize);
-    	if (bytes_read > 0) {
-        	char command = buffer[0];
-		
-    	
-	}
 
 	close(client_socket);
+}
+
+json read_data(int client_socket) {
+	string recivied_data;
+	char buffer[buffSize];
+	int bytes_read = 0;
+	if ((bytes_read = read(client_socket, buffer, buffSize)) > 0) {
+		recivied_data.append(buffer, bytes_read);
+		char command = buffer[0];
+	}
+	return json::parse(recivied_data);
 }
 
 bool regUser(const vault& v,const vector<string>& data){
 	v.addUser(login, password, name);
 	return false;
-}
-
-vector<string> to_vec(const char c[buffSize]){
-	string s(c);
-	vector<string> splitted;
-
-	while (s.find(":") != s.npos) {
-		splitted.push_back(s.substr(0, s.find(":")));
-		s.erase(0, s.find(":") + 1);
-	}
-	if (s.length() > 0) splitted.push_back(s);
-	return splitted;
-}
-
-vector<string> to_vec(const char c[buffSize], unsigned int count) {
-	string s(c);
-	vector<string> splitted;
-
-	while (s.find(":") != s.npos && count > 0) {
-		splitted.push_back(s.substr(0, s.find(":")));
-		s.erase(0, s.find(":") + 1);
-		count -= 1;
-	}
-
-	if (s.length() > 0) splitted.push_back(s);
-
-	return splitted;
 }

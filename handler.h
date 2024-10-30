@@ -13,9 +13,6 @@ using json = nlohmann::json;
 using namespace std;
 
 void handle_client(int client_socket);
+json read_data(int client_socket);
 
 bool regUser(const vault& v, const vector<string>& data);
-
-vector<string> to_vec(const char c[buffSize]);
-
-vector<string> to_vec(const char c[buffSize], unsigned int count);

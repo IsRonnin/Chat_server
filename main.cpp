@@ -19,6 +19,8 @@ char message[MESSAGE_LENGTH];
 int main()  {
     // Создадим сокет
     sockert_file_descriptor = socket(AF_INET, SOCK_STREAM, 0);
+    setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt));
+
     if(sockert_file_descriptor == -1){
         cout << "Socket creation failed.!" << endl;
         exit(1);
