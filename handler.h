@@ -4,6 +4,10 @@
 #include <cstring>
 #include <string>
 #include "vault.h"
+#include "nlohmann/json.hpp"
+
+using json = nlohmann::json;
+
 
 #define buffSize 1024
 using namespace std;
