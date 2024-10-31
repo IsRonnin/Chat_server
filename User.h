@@ -21,8 +21,8 @@ public:
 	string const& getName();
 	string const& getPassword();
 	
-	int checkNew();
+	int checkNew();	
 
-	shared_ptr<message> getMessage();
-	void addNewMessage(shared_ptr<Message> m) { waiting.push(m) };
+	shared_ptr<Message> getMessage();
+	void addNewMessage(shared_ptr<Message> m) { waiting.push(m); }
 };
