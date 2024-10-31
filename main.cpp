@@ -10,16 +10,17 @@ using namespace std;
  
 #define MESSAGE_LENGTH 1024 // Максимальный размер буфера для данных
 #define PORT 52111 // Будем использовать этот номер порта
- 
+
 struct sockaddr_in serveraddress, client;
 socklen_t length;
-int sockert_file_descriptor, connection, bind_status, connection_status;
+int sockert_file_descriptor, connection, bind_status, connection_status, opt=1;
 char message[MESSAGE_LENGTH];
  
 int main()  {
+
     // Создадим сокет
     sockert_file_descriptor = socket(AF_INET, SOCK_STREAM, 0);
-    setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt));
+    setsockopt(sockert_file_descriptor, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt));
 
     if(sockert_file_descriptor == -1){
         cout << "Socket creation failed.!" << endl;
