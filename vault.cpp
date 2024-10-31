@@ -19,5 +19,18 @@ void vault::addMessage(std::shared_ptr<User> to, std::shared_ptr<User> from, std
 	to->addNewMessage(this->_messages.back());
 }
 
+bool vault::signIn(const string& login, const string& password) {
+	shared_ptr<User> user = getUserByLogin(login);
+	if (user == nullptr) return false;
+	if (user->getPassword() != password) return false;
+	return true;
+}
+bool vault::signUp(const string& login, const string& password, const string& name) {
+	if (getUserByLogin(login) != nullptr) return false;
+	addUser(login, password, name);
+	return true;
+}
 
+void vault::changeUserName(const string& login, const& string newName);
+void vault::changeUserPassword();
 

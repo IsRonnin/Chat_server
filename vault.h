@@ -18,8 +18,8 @@ public:
 	bool signIn(const string& login, const string& password);
 	bool signUp(const string& login, const string& password, const string& name);
 
-	void changeUserName();
-	void changeUserPassword();
+	void changeUserName(const string& login, const& string newName);
+	void changeUserPassword(const string& login, const& string oldPassword, const& string newPassword);
 	
 		
 }
