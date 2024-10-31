@@ -4,7 +4,9 @@
 #include<ctime>
 #include<memory>
 #include<string>
+#include "nlohmann/json.hpp"
 
+using json = nlohmann::json;
 using namespace std;
 
 class User;
@@ -25,4 +27,6 @@ public:
 	const string& getText() const;
 	const string& getTime() const;
 	const string Data_time();
+	json get_json();
+
 };
