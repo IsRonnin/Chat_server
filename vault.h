@@ -19,7 +19,7 @@ public:
 	bool signUp(const string& login, const string& password, const string& name);
 
 	void changeUserName(const string& login, const& string newName);
-	void changeUserPassword(const string& login, const& string oldPassword, const& string newPassword);
+	void changeUserPassword(const string& login, const& string newPassword);
 	
 		
 }

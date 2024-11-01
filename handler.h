@@ -15,4 +15,4 @@ using namespace std;
 void handle_client(int client_socket);
 json read_data(int client_socket);
 
-bool regUser(const vault& v, const vector<string>& data);
+bool regUser(vault& v, const json& data);
