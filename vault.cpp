@@ -32,5 +32,5 @@ bool vault::signUp(const string& login, const string& password, const string& na
 }
 
 void vault::changeUserName(const string& login, const& string newName);
-void vault::changeUserPassword();
+void vault::changeUserPassword(const string& login, const& string oldPassword, const& string newPassword);
 
